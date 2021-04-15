@@ -3,7 +3,7 @@ import './ServiceCategory.css'
 const ServiceCategory = ({ service }) => {
     return (
         <div className="col-md-4 col-sm-12 d-flex justify-content-center my-4">
-            <div className="service-card p-3 border border-2 bg-light">
+            <div className="service-card p-3 shadow bg-light">
                 <div className="text-center">
                     <img style={{ width: '50px' }} src={service.img} alt="" />
                 </div>

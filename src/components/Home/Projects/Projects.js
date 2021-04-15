@@ -7,19 +7,16 @@ import ytImg from '../../../imgs/pjt3.jpg';
 const projectsData = [
     {
         id:1,
-        name: 'TVC For Great Company',
         category:'Convert Article To Video',
         img: TvcImg
     },
     {
         id:2,
-        name: 'Animation Video',
         category:'Ads, Promos & Social Media',
         img: PromosImg
     },
     {
         id:3,
-        name: 'Great Learning Video',
         category:'YouTube',
         img: ytImg
     }

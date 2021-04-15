@@ -22,7 +22,7 @@ const servicesData = [
         id: 3,
         category: 'YouTube/Others',
         img: ytLogo,
-        price: '%250'
+        price: '$250'
     }
 
 ]
@@ -33,7 +33,8 @@ const services = () => {
             <div className='container pt-5'>
                 <div className="text-center">
                     <h6 className='text-color'>Services</h6>
-                    <h1 className='heading-color'>Lets choice video category that engage your audience and define your service at the same time.</h1>
+                    <h1 className='heading-color'>Popular Services</h1>
+                    <p className='text-color'>Let's choice video category that engage your audience and define your service at the same time.</p>
                 </div>
                 <div className="row">
                     {

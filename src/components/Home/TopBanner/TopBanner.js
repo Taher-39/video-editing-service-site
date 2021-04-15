@@ -4,7 +4,7 @@ import './TopBanner.css'
 const TopBanner = () => {
     return (
         <main style={{ minHeight: '600px' }} className='row d-flex align-items-center'>
-            <div className="col-md-4 offset-md-1 banner-description">
+            <div className="col-md-4 offset-md-1 description">
                 <h1 className='heading-color header-text'>Design, Build & Grow Your Business With</h1>
                 <h3 className='heading-color'>Dream Quality Video</h3>
                 <p className='text-color my-4'>
