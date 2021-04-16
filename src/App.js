@@ -13,8 +13,9 @@ import Orders from "./components/Admin/Orders/Orders";
 import MakeAdmin from "./components/Admin/MakeAdmin/MakeAdmin";
 import AddService from "./components/Admin/AddService/AddService";
 import ManageServices from "./components/Admin/ManageServices/ManageServices";
-import PrivetRoute from "./components/PrivateRoute/PrivateRoute";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Login from "./components/Login/Login";
+import Book from "./components/Dashboard/Book/Book";
 
 export const UserContext = createContext();
 
@@ -42,9 +43,12 @@ function App() {
           <Route path='/manageServices'>
             <ManageServices></ManageServices>
           </Route>
-          <PrivetRoute path='/dashboard'>
+          <PrivateRoute path="/service/:id">
+            <Book></Book>
+          </PrivateRoute>
+          <PrivateRoute path='/dashboard'>
             <Dashboard></Dashboard>
-          </PrivetRoute>
+          </PrivateRoute>
           <Route exact path='/'>
             <Home></Home>
           </Route>

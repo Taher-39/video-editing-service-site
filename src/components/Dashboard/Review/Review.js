@@ -3,7 +3,21 @@ import { useForm } from "react-hook-form";
 import SideBar from '../SideBar/SideBar';
 const Review = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+
+        data.issueDate = new Date();
+        fetch('http://localhost:5000/addReview', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result) {
+                    alert('Your review added Successfully')
+                }
+            })
+    };
     return (
         <div className="row" >
             <div className="col-md-2">

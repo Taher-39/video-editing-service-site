@@ -1,37 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CustomerReview from '../CustomerReview/CustomerReview';
 import './CustomerReviews.css';
 
-const testimonials = [
-    {
-        id: 1,
-        customerName: 'John vikenchs',
-        quote: 'We know that the best way to drive positive change is to learn from our mistakes and hear what our customers have to say. Our companies thrive off customer feedback.',
-        rating: 4
-    },
-    {
-        id: 2,
-        customerName: 'Lory UF',
-        quote: 'Truly listening is hearing the needs of the customer, understanding those needs, and making sure the company recognizes the opportunity they present.',
-        rating: 5
-    },
-    {
-        id: 3,
-        customerName: 'Pitter Burg',
-        quote: 'Innovation is hard because solving problems people didn’t know they had and building something no-one needs look identical at first.',
-        rating: 4
-    }
-
-]
-
 const CustomerReviews = () => {
+    const [reviews, setReviews] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/getReview')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
     return (
         <section className='review pb-5'>
             <div className="container">
                 <h1 className='heading-color text-center pt-5'>Customer Reviews</h1>
                 <div className="row pt-4">
                     {
-                        testimonials.map(review => <CustomerReview review={review} key={review.id}></CustomerReview>)
+                        reviews.map(review => <CustomerReview review={review} key={review._id}></CustomerReview>)
                     }
                 </div>
             </div>
