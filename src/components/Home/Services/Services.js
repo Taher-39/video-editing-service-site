@@ -1,33 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Services.css';
-import articleLogo from '../../../imgs/article-logo.png';
-import AdsLogo from '../../../imgs/ads-logo-1.png';
-import ytLogo from '../../../imgs/yt-logo.png';
 import ServiceCategory from '../ServiceCategory/ServiceCategory';
 
-const servicesData = [
-    {
-        id: 1,
-        category: 'Convert Article To Video',
-        img: articleLogo,
-        price: '$99'
-    },
-    {
-        id: 2,
-        category: 'Ads, Promos & Social Media',
-        img: AdsLogo,
-        price: "$149"
-    },
-    {
-        id: 3,
-        category: 'YouTube/Others',
-        img: ytLogo,
-        price: '$250'
-    }
 
-]
-
-const services = () => {
+const Services = () => {
+    const [serviceData, setServiceData] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/services')
+            .then(res => res.json())
+            .then(data => setServiceData(data))
+    }, [])
     return (
         <section className='mt-5 services-area'>
             <div className='container pt-5'>
@@ -38,7 +20,7 @@ const services = () => {
                 </div>
                 <div className="row">
                     {
-                        servicesData.map(service => <ServiceCategory service={service} key={service.id}></ServiceCategory>)
+                        serviceData.map(service => <ServiceCategory service={service} key={service._id}></ServiceCategory>)
                     }
                 </div>
             </div>
@@ -46,4 +28,4 @@ const services = () => {
     );
 };
 
-export default services;
+export default Services;

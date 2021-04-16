@@ -6,7 +6,7 @@ const TopBanner = () => {
         <main style={{ minHeight: '600px' }} className='row d-flex align-items-center'>
             <div className="col-md-4 offset-md-1 description">
                 <h1 className='heading-color header-text'>Design, Build & Grow Your Business With</h1>
-                <h3 className='heading-color'>Dream Quality Video</h3>
+                <h3 className='heading-color'>Making Quality Video</h3>
                 <p className='text-color my-4'>
                    We are hare to understand you first and then to build your dream video.
                    Lets create video adds that engage your audience and define your service at the same time.

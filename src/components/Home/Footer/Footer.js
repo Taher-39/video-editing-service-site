@@ -50,7 +50,7 @@ const Footer = () => {
                         </div>
                     </FooterData>
                 </div>
-                <div className="copyRight text-center">
+                <div className="copyRight text-center text-light">
                     <p>Copyright By @T {(new Date()).getFullYear()} All Rights Reserved</p>
                 </div>
             </div>

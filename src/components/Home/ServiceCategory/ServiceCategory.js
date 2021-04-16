@@ -5,11 +5,11 @@ const ServiceCategory = ({ service }) => {
         <div className="col-md-4 col-sm-12 d-flex justify-content-center my-4">
             <div className="service-card p-3 shadow bg-light">
                 <div className="text-center">
-                    <img style={{ width: '50px' }} src={service.img} alt="" />
+                    <img style={{ width: '80px' }} src={`data:image/jpeg;base64,${service.image.img}`} alt="" />
                 </div>
                 <div className="text-center p-3 text-color">
-                    <h3>{service.price}</h3>
-                    <h4>{service.category}</h4>
+                    <h3>${service.price}</h3>
+                    <h4>{service.title}</h4>
                     <button className="btn color-brand">Explore More</button>
                 </div>
             </div>

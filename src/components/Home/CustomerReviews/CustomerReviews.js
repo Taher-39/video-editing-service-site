@@ -1,5 +1,5 @@
 import React from 'react';
-import Review from '../Review/Review';
+import CustomerReview from '../CustomerReview/CustomerReview';
 import './CustomerReviews.css';
 
 const testimonials = [
@@ -31,7 +31,7 @@ const CustomerReviews = () => {
                 <h1 className='heading-color text-center pt-5'>Customer Reviews</h1>
                 <div className="row pt-4">
                     {
-                        testimonials.map(review => <Review review={review} key={review.id}></Review>)
+                        testimonials.map(review => <CustomerReview review={review} key={review.id}></CustomerReview>)
                     }
                 </div>
             </div>

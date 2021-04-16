@@ -7,6 +7,15 @@ import {
 } from "react-router-dom";
 import Home from "./components/Home/Home/Home";
 import './App.css'
+import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
+import Review from "./components/Dashboard/Review/Review";
+import Orders from "./components/Admin/Orders/Orders";
+import MakeAdmin from "./components/Admin/MakeAdmin/MakeAdmin";
+import AddService from "./components/Admin/AddService/AddService";
+import ManageServices from "./components/Admin/ManageServices/ManageServices";
+import PrivetRoute from "./components/PrivateRoute/PrivateRoute";
+import Login from "./components/Login/Login";
+
 export const UserContext = createContext();
 
 function App() {
@@ -15,6 +24,27 @@ function App() {
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
+          <Route path='/login'>
+            <Login></Login>
+          </Route>
+          <Route path='/review'>
+            <Review></Review>
+          </Route>
+          <Route path='/orders'>
+            <Orders></Orders>
+          </Route>
+          <Route path='/makeAdmin'>
+            <MakeAdmin></MakeAdmin>
+          </Route>
+          <Route path='/addService'>
+            <AddService></AddService>
+          </Route>
+          <Route path='/manageServices'>
+            <ManageServices></ManageServices>
+          </Route>
+          <PrivetRoute path='/dashboard'>
+            <Dashboard></Dashboard>
+          </PrivetRoute>
           <Route exact path='/'>
             <Home></Home>
           </Route>
