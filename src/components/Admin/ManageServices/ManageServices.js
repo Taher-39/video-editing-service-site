@@ -8,7 +8,7 @@ const ManageServices = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://aqueous-hollows-66826.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -20,7 +20,7 @@ const ManageServices = () => {
             </div>
             <div className="col-md-10 p-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB", minHeight: '100vh' }}>
                 <div className="d-flex justify-content-between">
-                    <div><h2 className='heading-color'>Add Services</h2></div>
+                    <div><h2 className='heading-color'>Manage Services</h2></div>
                     <div><h6 className='text-color'>{loggedInUser.name}</h6></div>
                 </div>
                 <ServiceDataList services={services} key={services._id}></ServiceDataList>

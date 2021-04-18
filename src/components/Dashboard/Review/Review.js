@@ -6,7 +6,7 @@ const Review = () => {
     const onSubmit = data => {
 
         data.issueDate = new Date();
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://aqueous-hollows-66826.herokuapp.com/addReview', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

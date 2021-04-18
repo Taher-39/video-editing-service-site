@@ -16,6 +16,7 @@ import ManageServices from "./components/Admin/ManageServices/ManageServices";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Login from "./components/Login/Login";
 import Book from "./components/Dashboard/Book/Book";
+import BookingList from "./components/Dashboard/BookingList/BookingList";
 
 export const UserContext = createContext();
 
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <PrivateRoute path="/service/:id">
             <Book></Book>
+          </PrivateRoute>
+          <PrivateRoute path="/bookingList">
+            <BookingList></BookingList>
           </PrivateRoute>
           <PrivateRoute path='/dashboard'>
             <Dashboard></Dashboard>

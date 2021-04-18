@@ -6,7 +6,7 @@ import ServiceCategory from '../ServiceCategory/ServiceCategory';
 const Services = () => {
     const [serviceData, setServiceData] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://aqueous-hollows-66826.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setServiceData(data))
     }, [])
