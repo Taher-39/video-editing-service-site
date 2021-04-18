@@ -20,8 +20,8 @@ const Book = () => {
                 setServiceDetails(data)
             })
     }, [id])
-    const handleOrder = () => {
-        const newBooking = { ...loggedInUser, serviceTitle: title, servicePrice: price, bookingTime: new Date(), status: "pending" };
+    const handleOrder = (paymentId) => {
+        const newBooking = { ...loggedInUser, paymentId, serviceTitle: title, servicePrice: price, bookingTime: new Date(), status: "pending" };
         const url = `https://aqueous-hollows-66826.herokuapp.com/bookingOrder`;
         fetch(url, {
             method: 'POST',
@@ -76,8 +76,7 @@ const Book = () => {
                 </div>
                 <div className="payment">
                     <h3 className='text-color'>Payment With Card</h3>
-                    <PaymentProcess></PaymentProcess>
-                    <button className='btn color-brand text-light' onClick={handleOrder}>Confirm Order</button>
+                    <PaymentProcess handleOrder={handleOrder}></PaymentProcess>
                 </div>
             </div>
             

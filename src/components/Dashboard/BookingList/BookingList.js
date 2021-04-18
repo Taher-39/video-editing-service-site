@@ -34,6 +34,7 @@ const BookingList = () => {
                                     <div className="text-center p-3 text-color">
                                         <h3>${book.servicePrice}</h3>
                                         <h4>{book.serviceTitle}</h4>
+                                        <small>paymentId: {book.paymentId}</small>
                                     </div>
                                 </div>
                             </div> 

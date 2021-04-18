@@ -5,10 +5,10 @@ import PaymentCard from './PaymentCard';
 
 const stripePromise = loadStripe('pk_test_51IeCgTHYjILdsZY2FPLWUK2bN32m4A2znYloUXwkNzWzPsqldA6KcFEO1xOyYbZATHeuzFJyBrGv5Uvvc3MARJeQ00oHYlm0bq');
 
-const ProcessPayment = () => {
+const ProcessPayment = ({ handleOrder }) => {
     return (
         <Elements stripe={stripePromise}>
-            <PaymentCard></PaymentCard>
+            <PaymentCard handleOrder={handleOrder}></PaymentCard>
         </Elements>
     );
 };

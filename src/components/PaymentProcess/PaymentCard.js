@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
-const PaymentCard = ({ handlePayment }) => {
+const PaymentCard = ({ handleOrder}) => {
     const stripe = useStripe();
     const elements = useElements();
     const [paymentError, setPaymentError] = useState(null)
@@ -15,10 +15,6 @@ const PaymentCard = ({ handlePayment }) => {
             // form submission until Stripe.js has loaded.
             return;
         }
-
-        // Get a reference to a mounted CardElement. Elements knows how
-        // to find your CardElement because there can only ever be one of
-        // each type of element.
         const cardElement = elements.getElement(CardElement);
 
         // Use your card Element with other Stripe.js APIs
@@ -33,15 +29,15 @@ const PaymentCard = ({ handlePayment }) => {
         } else {
             setPaymentConfirmMsg(paymentMethod.id)
             setPaymentError(null)
-            // handlePayment(paymentMethod.id)
+            handleOrder(paymentMethod.id)
         }
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className='my-3'>
+            <form className='my-3' onSubmit={handleSubmit}>
                 <CardElement />
-                <button type="submit" disabled={!stripe}>
+                <button className='btn color-brand text-light my-3' type="submit" disabled={!stripe}>
                     Pay
                 </button>
             </form>

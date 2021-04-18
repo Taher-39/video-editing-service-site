@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 
 const OrdersDataList = ({orders}) => {
     const [bookingProduct, setBookingProduct] = useState({})
-    const [updateDisplay, setUpdateDisplay] = useState(false)
     const [newStatus, setNewStatus] = useState(null)
 
     const handleUpdate = (id) =>{
-        setUpdateDisplay(true)
-        fetch(`http://localhost:5000/updateBooking/${id}`)
+        fetch(`https://aqueous-hollows-66826.herokuapp.com/updateBooking/${id}`)
         .then(res => res.json())
             .then(data => {
                 setBookingProduct(data)
@@ -17,10 +15,10 @@ const OrdersDataList = ({orders}) => {
         const id = bookingProduct._id;
         const changeStatus = { status: e.target.value, id}
         setNewStatus(changeStatus)
-        fetch(`http://localhost:5000/updateStatus/${id}`, {
+        fetch(`https://aqueous-hollows-66826.herokuapp.com/updateStatus/${id}`, {
             method: 'PATCH',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(changeStatus)
+            body: JSON.stringify(newStatus)
         })
             .then(res => res.json())
             .then(data => {
@@ -31,12 +29,6 @@ const OrdersDataList = ({orders}) => {
     }
     return (
         <div >
-            {updateDisplay === true ? <div className="update-product bg-light p-3 my-3 rounded shadow">
-                <label htmlFor="status">Status-of: {bookingProduct._id}</label>
-                <input className='form-control w-25' type="text" name="status" id="status" value={bookingProduct.status} />
-                <input className='form-control w-25' type="text" name="status" id="status" value={bookingProduct.name} />
-                <button className='btn btn-secondary mt-2'>Submit</button>
-            </div> : null}
             <div className='bg-light p-3 mt-3 rounded shadow'>
                 <table className="table table-borderless">
                     <thead>
