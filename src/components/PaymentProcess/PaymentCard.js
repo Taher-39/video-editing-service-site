@@ -33,7 +33,7 @@ const PaymentCard = ({ handlePayment }) => {
         } else {
             setPaymentConfirmMsg(paymentMethod.id)
             setPaymentError(null)
-            handlePayment(paymentMethod.id)
+            // handlePayment(paymentMethod.id)
         }
     };
 

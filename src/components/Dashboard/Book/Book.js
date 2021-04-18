@@ -21,8 +21,8 @@ const Book = () => {
             })
     }, [id])
     const handleOrder = () => {
-        const newBooking = { ...loggedInUser, serviceTitle: title, servicePrice: price, bookingTime: new Date() };
-        const url = `http://localhost:5000/bookingOrder`;
+        const newBooking = { ...loggedInUser, serviceTitle: title, servicePrice: price, bookingTime: new Date(), status: "pending" };
+        const url = `https://aqueous-hollows-66826.herokuapp.com/bookingOrder`;
         fetch(url, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
