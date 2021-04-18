@@ -27,7 +27,6 @@ const OrdersDataList = ({orders}) => {
                                 <td>{order.email}</td>
                                 <td>{order.serviceTitle}</td>
                                 <td>{order.bookingTime}</td>
-                                {/* <td><button className='btn btn-danger'>Pending</button></td> */}
                                 <td>
                                     <form>
                                         <select onChange={handleChange}>

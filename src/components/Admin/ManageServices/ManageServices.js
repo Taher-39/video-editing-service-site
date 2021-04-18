@@ -21,7 +21,7 @@ const ManageServices = () => {
             <div className="col-md-10 p-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB", minHeight: '100vh' }}>
                 <div className="d-flex justify-content-between">
                     <div><h2 className='heading-color'>Manage Services</h2></div>
-                    <div><h6 className='text-color'>{loggedInUser.name}</h6></div>
+                    <div><h6 className='text-color'>Welcome as a Admin {loggedInUser.name}</h6></div>
                 </div>
                 <ServiceDataList services={services} key={services._id}></ServiceDataList>
             </div>

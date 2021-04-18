@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { UserContext } from '../../../App';
 import SideBar from '../../Dashboard/SideBar/SideBar';
 
 const MakeAdmin = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
         data.issueDate = new Date();
         fetch('http://localhost:5000/addAdmin', {
             method: 'POST',
@@ -25,8 +26,9 @@ const MakeAdmin = () => {
                 <SideBar></SideBar>
             </div>
             <div className="col-md-10 p-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB", minHeight: '100vh' }}>
-                <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-around mb-3">
                     <div><h2 className='heading-color'>Make Admin Page</h2></div>
+                    <div><h6 className='text-color'>Welcome As Our Admin {loggedInUser.name}</h6></div>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group mb-3">

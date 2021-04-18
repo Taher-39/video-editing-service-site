@@ -5,13 +5,14 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import SideBar from '../SideBar/SideBar';
+import PaymentProcess from '../../PaymentProcess/PaymentProcess';
 
 const Book = () => {
     const {id} = useParams()
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [serviceDetails, setServiceDetails] = useState({})
     const { title, price } = serviceDetails;
-    // const img = serviceDetails?.image?.img;
+
     useEffect(() => {
         fetch('https://aqueous-hollows-66826.herokuapp.com/service/' + id)
             .then(res => res.json())
@@ -39,9 +40,8 @@ const Book = () => {
             <div className="col-md-2">
                     <SideBar></SideBar>
             </div>
-            <div className="col-md-10 p-4 ml-3" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB", minHeight: '100vh' }}>
+            <div className="col-md-10 p-4 ml-3" style={{ position: "absolute", right: 0, minHeight: '100vh' }}>
                 <div className='book-service'>
-
                     <div className='d-flex justify-content-evenly p-3'>
                         <div>
                             <ul>
@@ -62,7 +62,6 @@ const Book = () => {
                                     <th className="text-color" scope="col">Image</th>
                                     <th className="text-color" scope="col">Service Name</th>
                                     <th className="text-color" scope="col">Service Price</th>
-                                    <th className="text-color" scope="col">Manage</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -70,11 +69,15 @@ const Book = () => {
                                     <td><img style={{ width: '50px' }} src={`data:image/jpeg;base64,${serviceDetails?.image?.img}`} alt="" /></td>
                                     <td>{title}</td>
                                     <td>${price}</td>
-                                    <td><button className='btn color-brand text-light' onClick={handleOrder}>Confirm Order</button></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div className="payment">
+                    <h3 className='text-color'>Payment With Card</h3>
+                    <PaymentProcess></PaymentProcess>
+                    <button className='btn color-brand text-light' onClick={handleOrder}>Confirm Order</button>
                 </div>
             </div>
             
