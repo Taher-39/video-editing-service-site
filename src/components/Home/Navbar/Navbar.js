@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
+import navLogo from '../../../imgs/navIcon.jpg'
 
 const Navbar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -12,6 +13,9 @@ const Navbar = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div className="img">
+                            <img className='pl-3' style={{ width: '50px' }} src={navLogo} alt=""/>
+                        </div>
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <Link className="nav-link ms-5" to="/">Home</Link>
@@ -23,7 +27,7 @@ const Navbar = () => {
                                 <Link className="nav-link ms-5" to="/dashboard">Dashboard</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link ms-5" to="/admin">Admin</Link>
+                                <Link className="nav-link ms-5" to="#">About-Us</Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link ms-5" href="#">Blogs</a>
